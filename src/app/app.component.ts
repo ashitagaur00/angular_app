@@ -13,7 +13,9 @@ export class AppComponent implements OnInit {
     public weatherService :WeatherService
   ){}
   
-  ngOnInit(): void{}
+  ngOnInit(): void{
+    this.getWeather();
+  }
 
   getWeather() :any{
     this.weatherService.getWeather().subscribe(

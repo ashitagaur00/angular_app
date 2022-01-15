@@ -26,7 +26,7 @@ export class WeatherService {
   getWeather(): Observable<any> {
     // ...using get request
     return this.httpClient
-      .get<any>('${API_URL}history.json', {
+      .get<any>(API_URL+'history.json', {
         params: {
           q: 'Tonk',
           dt: '2022-01-14',
