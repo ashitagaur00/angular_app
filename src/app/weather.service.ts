@@ -23,16 +23,11 @@ export class WeatherService {
   constructor(private httpClient: HttpClient) {}
 
   //get weather
-  getWeather(): Observable<any> {
+  getWeather(qp:any): Observable<any> {
     // ...using get request
     return this.httpClient
       .get<any>(API_URL+'history.json', {
-        params: {
-          q: 'Tonk',
-          dt: '2022-01-14',
-          lang: 'en',
-          end_dt: '2022-01-17',
-        }, //static for now
+        params: { ...qp}, //static for now
         headers: {
           'x-rapidapi-host': API_HOST,
           'x-rapidapi-key': API_KEY,
