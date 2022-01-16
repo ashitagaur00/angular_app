@@ -1,4 +1,32 @@
-<app-header [weatherData] = 'weatherData'[isLoading] = 'isLoading' ></app-header>
+
+<div class="root">
+    <!-- header -->
+    <app-header [weatherData] = 'weatherData'[isLoading] = 'isLoading' ></app-header>
+
+    <!-- card -->
+    <mat-card class="paper">
+        <!-- search -->
+        <div class="search">
+            <mat-form-field class="input">
+                <mat-label>Please input the place or check right info</mat-label>
+              <input matInput placeholder="Eg. Jaipur" [value] = "place">
+            </mat-form-field>
+         <!-- divider -->
+         <mat-divider class="divider" [vertical]="true"></mat-divider>
+         <!-- tooltip -->
+         <mat-icon (mouseover) = "showTooltipFn($event)" (mouseout)="showTooltip=false">
+             
+             <span class="material-icons-outlined">info_outlilned</span>
+         </mat-icon>
+
+        </div>  
+        <!-- dataRange -->
+        <app-date-range (dateRangeChange)="dateRangeChange($event)"></app-date-range>
+
+    </mat-card>
+
+</div>
+<app-info-tool-tip *ngIf="showTooltip" [pageXY]="pageXY"> </app-info-tool-tip>
 <!-- <h2>Hello </h2>
 <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
 <button mat-raised-button>Basic</button> -->

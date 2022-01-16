@@ -1,0 +1,15 @@
+.tooltip
+{
+    width:400px;
+    font-size: 12px;
+    position: absolute;
+    top:0;
+    left:0;
+
+
+}
+
+.infoHighLighted
+{
+    font-weight: bold;
+}

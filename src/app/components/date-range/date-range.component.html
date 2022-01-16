@@ -1,0 +1,13 @@
+<!-- <p>date-range works!</p> -->
+<div class="date-range">
+    <mat-form-field class="input">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="dateRangePicker" disabled [formGroup]="range" [dateFilter]="dateFilterFn">
+        <input matStartDate placeholder="From" formControlName="start" #dateRangeStart>
+        <input matEndDate placeholder="To" formControlName="end" #dateRangeEnd (dateChnage)= "dateRangeChangeEmit(dateRangeStart, dateRangeEnd)">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="dateRangePicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #dateRangePicker disabled=false></mat-date-range-picker>
+    </mat-form-field>
+    <button mat-button (click)="handleToday()" [disabled]="disabledToday">Today</button>
+</div>

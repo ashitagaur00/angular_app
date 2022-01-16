@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+// import { InfoToolTipComponent } from './components/info-tool-tip/info-tool-tip.component';
 //service
 import { WeatherService } from './weather.service';
+
+import { currentDate} from './shared/utils';
 
 @Component({
   selector: 'app-root',
@@ -16,17 +18,25 @@ export class AppComponent implements OnInit {
   //var
   qp = {
     q: this.place,
-    dt: '2022-01-14',
+    dt: currentDate,
     lang: 'en',
-    end_dt: '2022-01-17',
+    end_dt: currentDate,
+    // dt: '2022-01-14',
+    // lang: 'en',
+    // end_dt: '2022-01-17',
   };
-  constructor(public weatherService: WeatherService) {}
+
+  //tooltip
+  showTooltip = false;
+  pageXY = [0, 0];
+
+  constructor(public weatherService: WeatherService) { }
 
   ngOnInit(): void {
     this.getWeather(this.qp);
   }
 
-  getWeather(qp:any): any {
+  getWeather(qp: any): any {
     this.isLoading = true;
     this.weatherService.getWeather(qp).subscribe(
       (data) => {
@@ -40,4 +50,24 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
+  // emit the range date data to call api
+
+  dateRangeChange = (e: string[]) =>{
+    console.log(e);
+    this.qp = {...this.qp, dt:e[0], end_dt:e[1]};
+    this.getWeather(this.qp);
+  }
+
+
+  //show tooltip fn
+
+  showTooltipFn = (e:any): void => {
+    //we want to show the tooltip on the left side of the icon
+    //so we need grab the mouse position when we hover on the icon
+    // console.log(e.pageX,e.pageY);
+    this.pageXY = [e.pageX - 450, e.pageY- 100];
+    this.showTooltip = true;
+  }
+
 }

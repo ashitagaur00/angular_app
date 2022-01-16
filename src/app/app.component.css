@@ -1,0 +1,53 @@
+.root {
+    flex-direction: column;
+    display: flex;
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 100%;
+    padding-bottom: 50px;
+    min-height: calc(100vh-50px);
+    border-top: 1px solid red;
+}
+
+.paper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-width: 600px;
+    margin: 0 auto 15px;
+    align-items: stretch;
+    position: relative;
+
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    padding-bottom: 15px;
+    align-items: baseline;
+}
+
+.input {
+    margin: 0;
+    flex: 1;
+}
+
+.mat-icon
+{
+    cursor: pointer;
+}
+
+.divider
+{
+    height: 28px;
+    margin: 0 10px;
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  color: turquoise;
+}
