@@ -9,7 +9,7 @@
         <div class="search">
             <mat-form-field class="input">
                 <mat-label>Please input the place or check right info</mat-label>
-              <input matInput placeholder="Eg. Jaipur" [value] = "place">
+              <input matInput placeholder="Eg. Jaipur" [value] = "place" (keyup)="setPlace($event)">
             </mat-form-field>
          <!-- divider -->
          <mat-divider class="divider" [vertical]="true"></mat-divider>

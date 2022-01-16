@@ -36,6 +36,14 @@ export class AppComponent implements OnInit {
     this.getWeather(this.qp);
   }
 
+  // set place keyup
+  setPlace = (e:any):any =>{
+    console.log(e.target.value);
+  }
+
+  
+
+  // get weather fn
   getWeather(qp: any): any {
     this.isLoading = true;
     this.weatherService.getWeather(qp).subscribe(
