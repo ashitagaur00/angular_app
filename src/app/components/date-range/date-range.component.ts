@@ -14,18 +14,23 @@ export class DateRangeComponent implements OnInit {
 
   //range
 
+  
+  
   range = new FormGroup({
     start: new FormControl(currentDate),
     end: new FormControl(currentDate),
   });
 
   disabledToday = false;
-
+  
   constructor() { }
-
-  ngOnInit(): void { }
-
+  
+  ngOnInit(): void {
+    
+  }
+  
   handleToday = (): any => {
+    console.log(currentDate);
     // console.log("today");
     //here for the reset date range to today
     this.range.setValue({
